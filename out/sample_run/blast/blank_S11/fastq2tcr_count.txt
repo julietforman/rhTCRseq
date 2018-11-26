@@ -1,3 +1,0 @@
-loci	read_count
-TRA	3
-TRB	6
