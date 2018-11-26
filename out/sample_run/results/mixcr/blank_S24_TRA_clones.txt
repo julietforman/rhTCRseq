@@ -1,0 +1,2 @@
+clone_count	clone_fraction	v_hit	j_hit	c_hit	clone_sequence	cdr3	umi_count	clonotype	umis
+2	1.0	TRAV8-6	TRAJ13	TRAC	TGTGCTGTGAGTTGGGGTTACCAGAAAGTTACCTTT	CAVSWGYQKVTF	1	"TRAV8-6,TRAJ13,CAVSWGYQKVTF"	['GAGTGAG', 'GAGTGAG']

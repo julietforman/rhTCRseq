@@ -1,0 +1,98 @@
+
+[ALIGN TCR READS WITH MIXCR]
+-------------------------------------------------
+
+
+>> MAKE DIRECTORIES
+
+[Thu Nov 15 11:44:43 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/
+[Thu Nov 15 11:44:43 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S1-10ng_S6_TRB/
+[Thu Nov 15 11:44:43 EST 2018] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S1-10ng_S6_TRB/
+
+
+>> RUN MIXCR
+
+[Thu Nov 15 11:44:43 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar align --chains TRB --species hsa --save-description /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fastq/tcr/S1-10ng_S6_TRB_L001_R1_001.fastq alignments.vdjca
+Reference library: repseqio.v1.4:9606:200de63a951f3484df94065bbc280c67
+Alignment: 13.2%Alignment: 14.1%  ETA: 00:00:57
+Alignment: 24.6%  ETA: 00:00:57
+Alignment: 35.2%  ETA: 00:00:31
+Alignment: 49.3%  ETA: 00:00:10
+Alignment: 59.8%  ETA: 00:00:07
+Alignment: 70.4%  ETA: 00:00:05
+Alignment: 84.5%  ETA: 00:00:02
+Alignment: 95%  ETA: 00:00:00
+============= Report ==============
+Analysis time: 36.44s
+Total sequencing reads: 26910
+Successfully aligned reads: 26261 (97.59%)
+Alignment failed, no hits (not TCR/IG?): 21 (0.08%)
+Alignment failed because of absence of J hits: 595 (2.21%)
+Alignment failed because of low total score: 33 (0.12%)
+Overlapped: 0 (0%)
+Overlapped and aligned: 0 (0%)
+Overlapped and not aligned: 0 (0%)
+TRB chains: 26261 (100%)
+
+[Thu Nov 15 11:45:23 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar assemble --index index_file alignments.vdjca clones.clns
+Initialization: progress unknown
+Assembling initial clonotypes: 26.7%
+Assembling initial clonotypes: 57.8%  ETA: 00:00:01
+Assembling initial clonotypes: 100%  ETA: 00:00:00
+Mapping low quality reads: 26.7%
+Mapping low quality reads: 53.3%  ETA: 00:00:01
+Mapping low quality reads: 88.9%  ETA: 00:00:00
+Clustering: 3.9%
+Clustering: 19.8%  ETA: 00:00:05
+Clustering: 38.3%  ETA: 00:00:03
+Clustering: 57.1%  ETA: 00:00:02
+Clustering: 78.4%  ETA: 00:00:01
+Building clones: 0%
+Building clones: 44.6%  ETA: 00:00:02
+Building clones: 69.4%  ETA: 00:00:01
+Building clones: 90.5%  ETA: 00:00:00
+Writing clones: 0%
+Writing clones: 88.2%  ETA: 00:00:00
+============= Report ==============
+Analysis time: 20.18s
+Final clonotype count: 6736
+Average number of reads per clonotype: 3.74
+Reads used in clonotypes, percent of total: 25208 (93.68%)
+Reads used in clonotypes before clustering, percent of total: 25250 (93.83%)
+Number of reads used as a core, percent of used: 24941 (98.78%)
+Mapped low quality reads, percent of used: 309 (1.22%)
+Reads clustered in PCR error correction, percent of used: 42 (0.17%)
+Reads pre-clustered due to the similar VJC-lists, percent of used: 0 (0%)
+Reads dropped due to the lack of a clone sequence: 45 (0.17%)
+Reads dropped due to low quality: 1 (0%)
+Reads dropped due to failed mapping: 965 (3.59%)
+Reads dropped with low quality clones: 0 (0%)
+Clonotypes eliminated by PCR error correction: 23
+Clonotypes dropped as low quality: 0
+Clonotypes pre-clustered due to the sim
+[Thu Nov 15 11:45:48 EST 2018] $ java -Xm
+[Thu Nov 15 11:45:48 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignmentsPretty alignments.vdjca aExporting clones: 0%
+
+[Thu Nov 15 11:46:20 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignments --preset full -readId -descrR1 -cloneIdWithMappingType index_file alignments.vdjca alignments.txt
+Exporting alignments: 0%
+Exporting alignments: 13.3%  ETA: 00:00:32
+Exporting alignments: 31.1%  ETA: 00:00:07
+Exporting alignments: 53.3%  ETA: 00:00:04
+Exporting alignments: 71.1%  ETA: 00:00:01
+Exporting alignments: 93.3%  ETA: 00:00:00
+
+[Thu Nov 15 11:46:36 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportClones --chains TRB --preset full -readIds index_file clones.clns clones.txt
+Exporting clones: 0%
+Exporting clones: 45.4%  ETA: 00:00:01
+
+-------------------------------------------------
+
+    6737 clones.txt
+-------------------------------------------------
+
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+ELAPSED TIME: 00:02:03
+

@@ -1,0 +1,2 @@
+run_name,run_dir,fastq_dir,index_path,target_gene,umi,single
+sample_data,/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data,/Users/jforman/Documents/WuLab/TCR_protocol_files/data/sample_data,/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/index_list.txt,N,Y,N

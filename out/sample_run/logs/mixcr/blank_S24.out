@@ -1,0 +1,67 @@
+
+[ALIGN TCR READS WITH MIXCR]
+-------------------------------------------------
+
+
+>> MAKE DIRECTORIES
+
+[Thu Nov 15 11:52:47 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/
+[Thu Nov 15 11:52:47 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/blank_S24_TRB/
+[Thu Nov 15 11:52:47 EST 2018] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/blank_S24_TRB/
+
+
+>> RUN MIXCR
+
+[Thu Nov 15 11:52:47 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar align --chains TRB --species hsa --save-description /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fastq/tcr/blank_S24_TRB_L001_R1_001.fastq alignments.vdjca
+Reference library: repseqio.v1.4:9606:200de63a951f3484df94065bbc280c67
+Alignment: 100%
+============= Report ==============
+Analysis time: 3.34s
+Total sequencing reads: 5
+Successfully aligned reads: 5 (100%)
+Overlapped: 0 (0%)
+Overlapped and aligned: 0 (0%)
+Overlapped and not aligned: 0 (0%)
+TRB chains: 5 (100%)
+
+[Thu Nov 15 11:52:54 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar assemble --index index_file alignments.vdjca clones.clns
+Initialization: progress unknown
+Writing clones: 0%
+============= Report ==============
+Analysis time: 2.42s
+Final clonotype count: 3
+Average number of reads per clonotype: 1.33
+Reads used in clonotypes, percent of total: 4 (80%)
+Reads used in clonotypes before clustering, percent of total: 4 (80%)
+Number of reads used as a core, percent of used: 3 (75%)
+Mapped low quality reads, percent of used: 1 (25%)
+Reads clustered in PCR error correction, percent of used: 0 (0%)
+Reads pre-clustered due to the similar VJC-lists, percent of used: 0 (0%)
+Reads dropped due to the lack of a clone sequence: 0 (0%)
+Reads dropped due to low quality: 0 (0%)
+Reads dropped due to failed mapping: 1 (20%)
+Reads dropped with low quality clones: 0 (0%)
+Clonotypes eliminated by PCR error correction: 0
+Clonotypes dropped as low quality: 0
+Clonotypes pre-clustered due to the similar VJC-lists: 0
+TRB chains: 3 (100%)
+
+[Thu Nov 15 11:53:00 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignmentsPretty alignments.vdjca alignments.pretty.txt
+
+[Thu Nov 15 11:53:05 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignments --preset full -readId -descrR1 -cloneIdWithMappingType index_file alignments.vdjca alignments.txt
+Exporting alignments: 0%
+
+[Thu Nov 15 11:53:09 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportClones --chains TRB --preset full -readIds index_file clones.clns clones.txt
+Exporting clones: 0%
+
+-------------------------------------------------
+
+       4 clones.txt
+-------------------------------------------------
+
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+ELAPSED TIME: 00:00:26
+

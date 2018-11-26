@@ -1,0 +1,1 @@
+cloneId	umi_count	clone_count	clone_fraction

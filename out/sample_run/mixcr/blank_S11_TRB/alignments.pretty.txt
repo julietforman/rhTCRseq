@@ -1,0 +1,177 @@
+>>> Read id: 0
+
+                                                                                        <DPD>      
+                                                                 FR3><CDR3     V>      DP><D       
+   Quality     66666677777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CGCTCTGAGATGAATGTGAGCACCTTGGAGCTGGGGGACTCGGCCCTTTATCTTTGCGCCAGCAGCCGAAATTCCGGGCA 79   Score
+TRBV5-1*00 216 cgctctgagatgaatgtgagcaccttggagctgggggactcggccctttatctttgcgccagcagc               281  330
+  TRBD1*00  10                                                                          ccggg   14   25
+  TRBD2*00  14                                                                          ccggg   18   25
+
+              <JP                                                                                 
+              JP><J            CDR3><FR4                    FR4><C                                
+   Quality    77777777777777777777777767777777777777777777777777777777777777777777777777777677    
+   Target0 80 GAGCTCCTACGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGG 159  Score
+TRBJ2-7*00 17 gagctcctacgagcagtacttcgggccgggcaccaggctcacggtcacag                               66   250
+  TRBC2*00  0                                                   aggacctgaaaaacgtgttcccacccgagg 29   120
+
+                                                                                                 
+                                                                                                 
+ Quality     777777777776667777777777777777 77777777777777277777777777777677777 7776777777777    
+ Target0 160 TCGCTGTGTTTGAGCCATCAGAAGCAGAGA-CATTGATAGATCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAAC 237  Score
+TRBC2*00  30 tcgctgtgtttgagccatcagaagcagagaTcTCCCaCa-CCcAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTc 106  120
+
+                           
+                           
+ Quality     7777777777    
+ Target0 238 AATCTCGTAT 247  Score
+TRBC2*00 107 TaCcCcg-aC 115  120
+
+>>> Read id: 1
+
+                                                                                        <DPD>      
+                                                                 FR3><CDR3     V>      DP><D       
+   Quality     66666677777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CGCTCTGAGATGAATGTGAGCACCTTGGAGCTGGGGGACTCGGCCCTTTATCTTTGCGCCAGCAGCCGAAATTCCGGGCA 79   Score
+TRBV5-1*00 216 cgctctgagatgaatgtgagcaccttggagctgggggactcggccctttatctttgcgccagcagc               281  330
+  TRBD1*00  10                                                                          ccggg   14   25
+  TRBD2*00  14                                                                          ccggg   18   25
+
+              <JP                                                                                 
+              JP><J            CDR3><FR4                    FR4><C                                
+   Quality    77777777777777777777777677767667776777373777676777357767776676676777777777777256    
+   Target0 80 GAGCTCCTACGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGG 159  Score
+TRBJ2-7*00 17 gagctcctacgagcagtacttcgggccgggcaccaggctcacggtcacag                               66   250
+  TRBC2*00  0                                                   aggacctgaaaaacgtgttcccacccgagg 29   149
+
+                                                                                                 
+                                                                                                 
+ Quality     77777777777737726777733565625272667552477777277667777777677777777 77777224677246    
+ Target0 160 TCGCTGTGTTTGAGCCATCAGAAGCAGAGATATATGAAAATCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAACA 238  Score
+TRBC2*00  30 tcgctgtgtttgagccatcagaagcagagatCtCCCaCaCCcAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTcT 107  149
+
+                          
+                          
+ Quality     677767672    
+ Target0 239 ATCTCGTAT 247  Score
+TRBC2*00 108 aCcCcg-aC 115  149
+
+>>> Read id: 2
+
+                                                                                  <DPD>  <JP       
+                                                           FR3><CDR3     V>      DP><D   JP><J     
+   Quality     66666777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 GAACTGAACATGAGCTCCTTGGAGCTGGGGGACTCGGCCCTTTACCTTTGCGCCAGCAGCCGAAATTCCGGGCAGAGCTC 79   Score
+ TRBV13*00 222 gaactgaacatgagctccttggagctgggggactcAgccctGtacTtCtgTgccagcagc                     281  230
+TRBV5-1*00 226     tgaaTGtgagcAccttggagctgggggactcggccctttaTctttgcgccagcagc                     281  224
+  TRBD1*00  10                                                                    ccggg         14   25
+  TRBD2*00  14                                                                    ccggg         18   25
+TRBJ2-7*00  17                                                                           gagctc 22   250
+
+                                                                                                  
+                         CDR3><FR4                    FR4><C                                      
+   Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0 80 CTACGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTG 159  Score
+TRBJ2-7*00 23 ctacgagcagtacttcgggccgggcaccaggctcacggtcacag                                     66   250
+  TRBC2*00  0                                             aggacctgaaaaacgtgttcccacccgaggtcgctg 35   108
+
+                                                                                                 
+                                                                                                 
+ Quality     7777777777777777777777777777777777 7777777777777777777777777 7777777777777777777    
+ Target0 160 TGTTTGAGCCATCAGAAGCAGAGACGTTTTTAGA-TCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAACAATCTC 237  Score
+TRBC2*00  36 tgtttgagccatcagaagcagaga-TCtCCCaCaCCcAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTcTaCcCc 112  108
+
+                           
+                           
+ Quality     7777777765    
+ Target0 238 GTATGCCGTC 247  Score
+TRBC2*00 113 g-aCCAcgtG 121  108
+
+>>> Read id: 3
+
+                                                                                        <DPD>      
+                                                                 FR3><CDR3     V>      DP><D       
+   Quality     66666677777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CGCTCTGAGATGAATGTGAGCACCTTGGAGCTGGGGGACTCGGCCCTTTATCTTTGCGCCAGCAGCCGAAATTCCGGGCA 79   Score
+TRBV5-1*00 216 cgctctgagatgaatgtgagcaccttggagctgggggactcggccctttatctttgcgccagcagc               281  330
+  TRBD1*00  10                                                                          ccggg   14   25
+  TRBD2*00  14                                                                          ccggg   18   25
+
+              <JP                                                                                 
+              JP><J            CDR3><FR4                    FR4><C                                
+   Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0 80 GAGCTCCTACGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGG 159  Score
+TRBJ2-7*00 17 gagctcctacgagcagtacttcgggccgggcaccaggctcacggtcacag                               66   250
+  TRBC2*00  0                                                   aggacctgaaaaacgtgttcccacccgagg 29   162
+
+                                                                                                 
+                                                                                                 
+ Quality     777777776777777777777777777777 77777777777777777777777777777777777 7777777777777    
+ Target0 160 TCGCTGTGTTTGAGCCATCAGAAGCAGAGA-CTCAGACAGATCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAAC 237  Score
+TRBC2*00  30 tcgctgtgtttgagccatcagaagcagagaTctcCCaca-CCcAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTc 106  162
+
+                           
+                           
+ Quality     7763666562    
+ Target0 238 AATCTCGTAT 247  Score
+TRBC2*00 107 TaCcCcg-aC 115  162
+
+>>> Read id: 4
+
+                                                                                        <DPD>      
+                                                                 FR3><CDR3     V>      DP><D       
+   Quality     77667677777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CGCTCTGAGATGAATGTGAGCACCTTGGAGCTGGGGGACTCGGCCCTTTATCTTTGCGCCAGCAGCCGAAATTCCGGGCA 79   Score
+TRBV5-1*00 216 cgctctgagatgaatgtgagcaccttggagctgggggactcggccctttatctttgcgccagcagc               281  330
+  TRBD1*00  10                                                                          ccggg   14   25
+  TRBD2*00  14                                                                          ccggg   18   25
+
+              <JP                                                                                 
+              JP><J            CDR3><FR4                    FR4><C                                
+   Quality    77777777777777777777777777777777777777777777777777777777777777777676777777777777    
+   Target0 80 GAGCTCCTACGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGG 159  Score
+TRBJ2-7*00 17 gagctcctacgagcagtacttcgggccgggcaccaggctcacggtcacag                               66   250
+  TRBC2*00  0                                                   aggacctgaaaaacgtgttcccacccgagg 29   148
+
+                                                                                                 
+                                                                                                 
+ Quality     777777776777777777777777777777 77767777777776677777777777677777777 7767777777777    
+ Target0 160 TCGCTGTGTTTGAGCCATCAGAAGCAGAGA-CGGCTATAGACCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAAC 237  Score
+TRBC2*00  30 tcgctgtgtttgagccatcagaagcagagaTcTCcCaCa-CccAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTc 106  148
+
+                           
+                           
+ Quality     7763336652    
+ Target0 238 AATCTCGTAT 247  Score
+TRBC2*00 107 TaCcCcg-aC 115  148
+
+>>> Read id: 5
+
+                                                                                        <DPD>      
+                                                                 FR3><CDR3     V>      DP><D       
+   Quality     77776777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CGCTCTGAGATGAATGTGAGCACCTTGGAGCTGGGGGACTCGGCCCTTTATCTTTGCGCCAGCAGCCGAAATTCCGGGCA 79   Score
+TRBV5-1*00 216 cgctctgagatgaatgtgagcaccttggagctgggggactcggccctttatctttgcgccagcagc               281  330
+  TRBD1*00  10                                                                          ccggg   14   25
+  TRBD2*00  14                                                                          ccggg   18   25
+
+              <JP                                                                                 
+              JP><J            CDR3><FR4                    FR4><C                                
+   Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0 80 GAGCTCCTGCGAGCAGTACTTCGGGCCGGGCACCAGGCTCACGGTCACAGAGGACCTGAAAAACGTGTTCCCACCCGAGG 159  Score
+TRBJ2-7*00 17 gagctcctAcgagcagtacttcgggccgggcaccaggctcacggtcacag                               66   236
+  TRBC2*00  0                                                   aggacctgaaaaacgtgttcccacccgagg 29   134
+
+                                                                                                 
+                                                                                                 
+ Quality     77777777777777777777777777777 777777777777777777777777777777777777 7777777777677    
+ Target0 160 TCGCTGTGTTTGAGCCATCAGAAGCAGAG-GGTCCTTCAGATCGGAAGAGCACACGTCTGAACTCC-AGTCACCTCGAAC 237  Score
+TRBC2*00  30 tcgctgtgtttgagccatcagaagcagagATCtccCAca-CCcAAaagGCcacac-t-GgTaTGccTGgCcacAGGCTTc 106  134
+
+                           
+                           
+ Quality     7777777772    
+ Target0 238 AATCTCGTAT 247  Score
+TRBC2*00 107 TaCcCcg-aC 115  134
+
+Filtered: 6 / 6 = 100.0%

@@ -1,0 +1,64 @@
+>>> Read id: 0
+
+                                   FR3><CDR3      V>      <J                   CDR3><FR4             
+     Quality     66666767777777777777777777777777777777777777777777777777777777777777777777777777    
+     Target0   0 TGGAGACTCTGCAGTGTACTTCTGTGCAGCAAGCGATTCGTCTGACGGCTGGGGGAAATTGCAGTTTGGAGCAGGGACCC 79   Score
+TRAV29DV5*00 245 tggagactctgcagtgtacttctgtgcagcaagcg                                              279  175
+   TRAJ24*00  26                                          ctgacAgctgggggaaattgcagtttggagcagggaccc 64   271
+
+                           FR4>                                                                  
+  Quality    77777777777777765226637333736776377777376522337333263366777353336352752353535525    
+  Target0 80 AGGTTGTGGTCACCCCAGATATCCAGAACCCTGACCCTGCCGTGTACCAGCTGACTATCATAGATCGGAAGAGCACACGT 159  Score
+TRAJ24*00 65 aggttgtggtcaccccag                                                               82   271
+
+                                                                                                
+Quality     75277577653533553525257263335222563254624333665767777772223333333635333333222222    
+Target0 160 CTGAACTCCAGTCACCTCGAACAATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAATAGAATCATCACATCAACGCGTG 239  Score
+
+                        
+Quality     52542222    
+Target0 240 TACGTTTG 247  Score
+
+>>> Read id: 1
+
+                                   FR3><CDR3      V>      <J                   CDR3><FR4             
+     Quality     77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+     Target0   0 TGGAGACTCTGCAGTGTACTTCTGTGCAGCAAGCGATTCGTCTGGCAGCTGGGGGATATTGCAGTTTGGAGCAGGGACCC 79   Score
+TRAV29DV5*00 245 tggagactctgcagtgtacttctgtgcagcaagcg                                              279  175
+   TRAJ24*00  26                                          ctgAcagctgggggaAattgcagtttggagcagggaccc 64   257
+
+                           FR4>                                                                  
+  Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+  Target0 80 AGGTTGTGGTCACCCCAGGTATCCAGAACCCTGACCCTGCCGTGTACCAGCTGACAAACGAAGATCAGAAGAGCACACGT 159  Score
+TRAJ24*00 65 aggttgtggtcaccccag                                                               82   257
+
+                                                                                                
+Quality     77777777777777777777777776777777777776777777777777777776242353332335322222233333    
+Target0 160 CTGAACTCCAGTCACCTCGAACAATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAATGATCACAATCGACAACTCATT 239  Score
+
+                        
+Quality     55222222    
+Target0 240 GCGACACG 247  Score
+
+>>> Read id: 2
+
+                                   FR3><CDR3      V>      <J                   CDR3><FR4             
+     Quality     55636767377777777777777377733767667777773767777777762767277777777777777656777776    
+     Target0   0 TGGAGACTCTGCAGTGTACTTCTGTGCAGCAAGCGATTCGTCTGACAGCTGGGGGAAATTGCAGTTTGGAGCAGGGACCC 79   Score
+TRAV29DV5*00 245 tggagactctgcagtgtacttctgtgcagcaagcg                                              279  175
+   TRAJ24*00  26                                          ctgacagctgggggaaattgcagtttggagcagggaccc 64   285
+
+                           FR4>                                                                  
+  Quality    77767757777777767777777767777767777777767776667777777776726767777766266777777765    
+  Target0 80 AGGTTGTGGTCACCCCAGATATCCAGAACCCTGACCCTGCCGTGTACCAGCTGACGAAGTCAAATCGGAAGAGCACACGT 159  Score
+TRAJ24*00 65 aggttgtggtcaccccag                                                               82   285
+
+                                                                                                
+Quality     77777767372777777556666666635266675244426776776233366664222222222542242225252225    
+Target0 160 CTGAACTCCAGTCACCTCGAACAATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAACTAAAAACACTTATGTCTGGAT 239  Score
+
+                        
+Quality     24222222    
+Target0 240 GTGTCGTA 247  Score
+
+Filtered: 3 / 3 = 100.0%

@@ -1,0 +1,2 @@
+Fastq_basename,loci,Total reads,Total clones,Total UMIs,Reads/umi,UMIs/clone,% clones collapsed
+S5-10ng_S22,TRA,3065,609,645,4.75,1.06,23.78

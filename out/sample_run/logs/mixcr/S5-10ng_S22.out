@@ -1,0 +1,90 @@
+
+[ALIGN TCR READS WITH MIXCR]
+-------------------------------------------------
+
+
+>> MAKE DIRECTORIES
+
+[Thu Nov 15 11:51:57 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/
+[Thu Nov 15 11:51:57 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S5-10ng_S22_TRB/
+[Thu Nov 15 11:51:57 EST 2018] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S5-10ng_S22_TRB/
+
+
+>> RUN MIXCR
+
+[Thu Nov 15 11:51:57 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar align --chains TRB --species hsa --save-description /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fastq/tcr/S5-10ng_S22_TRB_L001_R1_001.fastq alignments.vdjca
+Reference library: repseqio.v1.4:9606:200de63a951f3484df94065bbc280c67
+Alignment: 5.8%
+Alignment: 17.4%  ETA: 00:00:21
+Alignment: 29%  ETA: 00:00:30
+Alignment: 40.7%  ETA: 00:00:15
+Alignment: 52.3%  ETA: 00:00:08
+Alignment: 63.9%  ETA: 00:00:06
+Alignment: 81.3%  ETA: 00:00:02
+Alignment: 92.9%  ETA: 00:00:00
+============= Report ==============
+Analysis time: 23.21s
+Total sequencing reads: 16274
+Successfully aligned reads: 15717 (96.58%)
+Alignment failed, no hits (not TCR/IG?): 13 (0.08%)
+Alignment failed because of absence of J hits: 502 (3.08%)
+Alignment failed because of low total score: 42 (0.26%)
+Overlapped: 0 (0%)
+Overlapped and aligned: 0 (0%)
+Overlapped and not aligned: 0 (0%)
+TRB chains: 15717 (100%)
+
+[Thu Nov 15 11:52:24 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar assemble --index index_file alignments.vdjca clones.clns
+Initialization: progress unknown
+Assembling initial clonotypes: 64.2%
+Mapping low quality reads: 21.4%
+Clustering: 5%
+Clustering: 25.6%  ETA: 00:00:07
+Clustering: 45.8%  ETA: 00:00:02
+Clustering: 78.9%  ETA: 00:00:00
+Building clones: 5%
+Building clones: 37.3%  ETA: 00:00:01
+Building clones: 94.1%  ETA: 00:00:00
+Writing clones: 0%
+Writing clones: 94.6%  ETA: 00:00:00
+============= Report ==============
+Analysis time: 13.98s
+Final clonotype count: 3524
+Average number of reads per clonotype: 4.3
+Reads used in clonotypes, percent of total: 15152 (93.11%)
+Reads used in clonotypes before clustering, percent of total: 15203 (93.42%)
+Number of reads used as a core, percent of used: 14996 (98.64%)
+Mapped low quality reads, percent of used: 207 (1.36%)
+Reads clustered in PCR error correction, percent of used: 51 (0.34%)
+Reads pre-clustered due to the similar VJC-lists, percent of used: 0 (0%)
+Reads dropped due to the lack of a clone sequence: 38 (0.23%)
+Reads dropped due to low quality: 3 (0.02%)
+Reads dropped due to failed mapping: 473 (2.91%)
+Reads dropped with low quality clones: 0 (0%)
+Clonotypes eliminated by PCR error correction: 24
+Clonotypes dropped as low quality: 0
+Clonotypes pre-clustered due to the similar VJC-lists: 0
+TRB chains: 3524 (100%)
+
+[Thu Nov 15 11:52:42 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignmentsPretty alignments.vdjca alignments.pretty.txt
+
+[Thu Nov 15 11:53:03 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignments --preset full -readId -descrR1 -cloneIdWithMappingType index_file alignments.vdjca alignments.txt
+Exporting alignments: 0%
+Exporting alignments: 35.7%  ETA: 00:00:05
+Exporting alignments: 71.3%  ETA: 00:00:00
+Exporting alignments: 99.8%  ETA: 00:00:00
+
+[Thu Nov 15 11:53:12 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportClones --chains TRB --preset full -readIds index_file clones.clns clones.txt
+Exporting clones: 0%
+
+-------------------------------------------------
+
+    3525 clones.txt
+-------------------------------------------------
+
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+ELAPSED TIME: 00:01:18
+

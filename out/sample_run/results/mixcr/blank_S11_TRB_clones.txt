@@ -1,0 +1,1 @@
+clone_count	clone_fraction	v_hit	j_hit	c_hit	clone_sequence	cdr3	umi_count	clonotype	umis

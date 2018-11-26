@@ -1,0 +1,3 @@
+Total read count:2
+Total number of UMIs across all clones:1
+Total number of clones before collapse:1

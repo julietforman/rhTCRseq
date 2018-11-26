@@ -1,0 +1,14 @@
+
+[PARSE BLAST RESULTS]
+--------------------------------------------------
+
+
+[Thu Nov 15 11:43:36 EST 2018] read tcr blast results
+[Thu Nov 15 11:43:52 EST 2018] find reads with consistent trv and trc blast results
+[Thu Nov 15 11:43:53 EST 2018] print read - tcr blast results mapping
+[Thu Nov 15 11:43:53 EST 2018] print tcr read counts
+
+
+--------------------------------------------------
+ELAPSED TIME: 00:00:16
+

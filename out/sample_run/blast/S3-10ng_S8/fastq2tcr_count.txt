@@ -1,0 +1,3 @@
+loci	read_count
+TRA	4333
+TRB	13545

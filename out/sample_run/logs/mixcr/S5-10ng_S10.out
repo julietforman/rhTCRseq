@@ -1,0 +1,92 @@
+
+[ALIGN TCR READS WITH MIXCR]
+-------------------------------------------------
+
+
+>> MAKE DIRECTORIES
+
+[Thu Nov 15 11:47:42 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/
+[Thu Nov 15 11:47:42 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S5-10ng_S10_TRB/
+[Thu Nov 15 11:47:42 EST 2018] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/mixcr/S5-10ng_S10_TRB/
+
+
+>> RUN MIXCR
+
+[Thu Nov 15 11:47:42 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar align --chains TRB --species hsa --save-description /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fastq/tcr/S5-10ng_S10_TRB_L001_R1_001.fastq alignments.vdjca
+Reference library: repseqio.v1.4:9606:200de63a951f3484df94065bbc280c67
+Alignment: 4.9%
+Alignment: 19.8%  ETA: 00:00:32
+Alignment: 34.6%  ETA: 00:00:30
+Alignment: 54.4%  ETA: 00:00:09
+Alignment: 69.2%  ETA: 00:00:04
+Alignment: 89%  ETA: 00:00:01
+============= Report ==============
+Analysis time: 25.89s
+Total sequencing reads: 19120
+Successfully aligned reads: 18554 (97.04%)
+Alignment failed, no hits (not TCR/IG?): 18 (0.09%)
+Alignment failed because of absence of J hits: 507 (2.65%)
+Alignment failed because of low total score: 41 (0.21%)
+Overlapped: 0 (0%)
+Overlapped and aligned: 0 (0%)
+Overlapped and not aligned: 0 (0%)
+TRB chains: 18554 (100%)
+
+[Thu Nov 15 11:48:12 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar assemble --index index_file alignments.vdjca clones.clns
+Initialization: progress unknown
+Assembling initial clonotypes: 37.4%
+Mapping low quality reads: 6.2%
+Clustering: 0%
+Clustering: 15.9%  ETA: 00:00:05
+Clustering: 39.7%  ETA: 00:00:02
+Clustering: 71.9%  ETA: 00:00:00
+Building clones: 0.2%
+Building clones: 16.6%  ETA: 00:00:05
+Building clones: 69%  ETA: 00:00:00
+Writing clones: 0%
+============= Report ==============
+Analysis time: 13.49s
+Final clonotype count: 3848
+Average number of reads per clonotype: 4.67
+Reads used in clonotypes, percent of total: 17987 (94.07%)
+Reads used in clonotypes before clustering, percent of total: 18039 (94.35%)
+Number of reads used as a core, percent of used: 17804 (98.7%)
+Mapped low quality reads, percent of used: 235 (1.3%)
+Reads clustered in PCR error correction, percent of used: 52 (0.29%)
+Reads pre-clustered due to the similar VJC-lists, percent of used: 0 (0%)
+Reads dropped due to the lack of a clone sequence: 29 (0.15%)
+Reads dropped due to low quality: 1 (0.01%)
+Reads dropped due to failed mapping: 485 (2.54%)
+Reads dropped with low quality clones: 0 (0%)
+Clonotypes eliminated by PCR error correction: 29
+Clonotypes dropped as low quality: 0
+Clonotypes pre-clustered due to the similar VJC-lists: 0
+TRB chains: 3848 (100%)
+
+[Thu Nov 15 11:48:30 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignmentsPretty alignments.vdjca alignments.pretty.txt
+
+[Thu Nov 15 11:49:00 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportAlignments --preset full -readId -descrR1 -cloneIdWithMappingType index_file alignments.vdjca alignments.txt
+Exporting alignments: 0%
+Exporting alignments: 12.5%  ETA: 00:00:35
+Exporting alignments: 24.9%  ETA: 00:00:06
+Exporting alignments: 43.6%  ETA: 00:00:06
+Exporting alignments: 56.1%  ETA: 00:00:03
+Exporting alignments: 68.5%  ETA: 00:00:02
+Exporting alignments: 81%  ETA: 00:00:01
+Exporting alignments: 93.4%  ETA: 00:00:00
+
+[Thu Nov 15 11:49:18 EST 2018] $ java -Xmx5g -jar /Users/jforman/bin/mixcr-2.1.5/mixcr.jar exportClones --chains TRB --preset full -readIds index_file clones.clns clones.txt
+Exporting clones: 0%
+Exporting clones: 56.3%  ETA: 00:00:00
+
+-------------------------------------------------
+
+    3849 clones.txt
+-------------------------------------------------
+
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+            [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+ELAPSED TIME: 00:01:47
+

@@ -1,0 +1,14 @@
+
+[SEPARATE FASTQ FILES]
+--------------------------------------------------
+
+
+[Thu Nov 15 11:44:25 EST 2018] READ SEQ ID - TCR MAPPING
+[Thu Nov 15 11:44:31 EST 2018] READ RAW FASTQ READ1
+[Thu Nov 15 11:44:32 EST 2018] SEPARATE FASTQ BY TRA AND TRB
+[Thu Nov 15 11:44:32 EST 2018] READ UMI READ2
+[Thu Nov 15 11:44:33 EST 2018] PRINT UMI BY TRA AND TRB
+
+--------------------------------------------------
+ELAPSED TIME: 00:00:07
+

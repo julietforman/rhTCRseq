@@ -1,0 +1,2 @@
+cloneId	umi_count	clone_count	clone_fraction
+CAVSWGYQKVTF	1	2	1.000000

@@ -1,0 +1,143 @@
+>>> Read id: 0
+
+                                                       VP>                                         
+                                    FR3><CDR3          V><VP    <D D><J         CDR3><FR4          
+   Quality     66777777767777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 CCCCAACCAGACCTCTCTGTACTTCTGTGCCAGCAGTTTATCGGGCATGAGCGGAGAGATCCAGTACTTCGGGCCAGGCA 79   Score
+ TRBV27*00 245 ccccaaccagacctctctgtacttctgtgccagcagtttatcg                                      287  215
+  TRBD2*00  22                                                  agcgg                           26   25
+TRBJ2-5*00  24                                                       agagaCccagtacttcgggccaggca 49   206
+
+                                                                                                  
+                            FR4><C                                                                
+   Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0 80 CGCGGCTCCTGGTGCTCGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTGTGTTTGAGCCATCAGAAGCAGAGACG 159  Score
+TRBJ2-5*00 50 cgcggctcctggtgctcg                                                               67   206
+  TRBC2*00  0                   aggacctgaaaaacgtgttcccacccgaggtcgctgtgtttgagccatcagaagcagaga-T 60   48
+
+                                                                                                 
+                                                                                                 
+ Quality     77777777777777777 7777777777777777 7777777777777577777777777777 77777  777777777    
+ Target0 160 ATCTAAGATCGGAAAAG-CACACGTCTGAACTCC-AGTCACAGTCAGGTATCTCGTATGCCGT-CTTCT--GCTTGAAAA 234  Score
+TRBC2*00  61 CtcCCaCaCcCAaaaGgCcacac-t-GgTaTGccTGgCcacagGcTTCtaCcCcg-aCCAcgtGGAGctGAgctGgTGGG 137  48
+
+                              
+                              
+ Quality     7777772222225    
+ Target0 235 AAAAAAAACAAAA 247  Score
+TRBC2*00 138 TGaaTGGGAaGGa 150  48
+
+>>> Read id: 1
+
+                                                       VP>                                         
+                                    FR3><CDR3          V><VP    <D D><J         CDR3><FR4          
+   Quality     66666355367637776777377777777777377777777777767733777626272776776733777722572722    
+   Target0   0 CCCCAACCAGACCTCTCTGTACTTCTGTGCCAGCAGTTTATCGGGCATGAGCGGAGAGACCCAGTACTTCGGGCCGGGCA 79   Score
+ TRBV27*00 245 ccccaaccagacctctctgtacttctgtgccagcagtttatcg                                      287  215
+  TRBD2*00  22                                                  agcgg                           26   25
+TRBJ2-5*00  24                                                       agagacccagtacttcgggccAggca 49   206
+
+                                                                                                  
+                            FR4>                                                                  
+   Quality    67677766735776777626662567777376677777735355225667667677777777767763635777762666    
+   Target0 80 CGCGGCTCCTGGTGCTCGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTGTGTTTGAGCCATCAGAAGCAGAGGGG 159  Score
+TRBJ2-5*00 50 cgcggctcctggtgctcg                                                               67   206
+
+                                                                                                
+                                                                                                
+Quality     76264636367222267677742454766777766777777726775222266726625445777777777264262666    
+Target0 160 ACTGTAGATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAGGTATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAA 239  Score
+
+                        
+                        
+Quality     62222242    
+Target0 240 AAAACACG 247  Score
+
+>>> Read id: 2
+
+                          FR3><CDR3      V>           <D D><J         CDR3><FR4                    
+   Quality     66666777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 ACATCTGTGTACTTCTGTGCCAGCAGTTTATCGGTCATGAGCGGAGAGACCCAGTACTTCGGGCCAGGCACGCGGCTCCT 79   Score
+TRBV6-2*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-3*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-5*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-6*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+ TRBV27*00 255 acCtctCtgtacttctgtgccagcagtttatcg                                                287  137
+  TRBD2*00  22                                        agcgg                                     26   25
+TRBJ2-5*00  24                                             agagacccagtacttcgggccaggcacgcggctcct 59   220
+
+                  FR4><C                                                                          
+   Quality    777777777777777777777773777777777777777777776777777777777777767777777777777777 7    
+   Target0 80 GGTGCTCGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTGTGTTTGAGCCATCAGAAGCAGAAATTCTTTTAGA-T 158  Score
+TRBJ2-5*00 60 ggtgctcg                                                                         67   220
+  TRBC2*00  0         aggacctgaaaaacgtgttcccacccgaggtcgctgtgtttgagccatcagaagcagaGa-tctCCCaCaCC 70   53
+
+                                                                                                 
+ Quality     777776777777777777777777 7777777777777477777767777777 77777  7777746777766762522    
+ Target0 159 CGGAAGAGCACACGTCTGAACTCC-AGTCACAGTCAGGTATCTCGTATGCCGT-CTTCT--GCTTGAAAAAAAAAAGAAA 234  Score
+TRBC2*00  71 cAAaagGCcacac-t-GgTaTGccTGgCcacagGcTTCtaCcCcg-aCCAcgtGGAGctGAgctGgTGGGTGaaTGgGaa 147  53
+
+                              
+ Quality     3252222253333    
+ Target0 235 GGAAGAAGATAAG 247  Score
+TRBC2*00 148 gg-agGTgCACag 159  53
+
+>>> Read id: 3
+
+                          FR3><CDR3      V>           <D D><J         CDR3><FR4                    
+   Quality     66666777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0   0 ACATCTGTGTACTTCTGTGCCAGCAGTTTATCGGGCATGAGCGGAGAGACCCAGTACCTCGGGCCAGGCACGCGGCTCCT 79   Score
+TRBV6-2*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-3*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-5*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+TRBV6-6*00 255 acatctgtgtacttctgtgccagcagtt                                                     282  140
+ TRBV27*00 255 acCtctCtgtacttctgtgccagcagtttatcg                                                287  137
+  TRBD2*00  22                                        agcgg                                     26   25
+TRBJ2-5*00  24                                             agagacccagtacTtcgggccaggcacgcggctcct 59   206
+
+                  FR4><C                                                                          
+   Quality    77777777777777777777777777777777777777777777777777777777777777777777777777777777    
+   Target0 80 GGTGCTCGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTGTGTTTGAGCCATCAGAAGCAGAGATACTTATAGATC 159  Score
+TRBJ2-5*00 60 ggtgctcg                                                                         67   206
+  TRBC2*00  0         aggacctgaaaaacgtgttcccacccgaggtcgctgtgtttgagccatcagaagcagagat-ctCCCaCaCc 70   44
+
+                                                                                                 
+ Quality     777777777777777 7777777 7777777777777777377777777772 67777  77777 77777777766252    
+ Target0 160 GGAGAGCACACGTCT-GAACTCC-AGTCACAGTCAGGTATCTCGTATGCCGT-CTTCT--GCTTG-AAAAAAAAAAAAAA 233  Score
+TRBC2*00  71 CAaAagGCcac-ActGgTaTGccTGgCcacagGcTTCtaCcCcg-aCCAcgtGGAGctGAgctGgTGGGTGaaTGGGaaG 148  44
+
+                               
+ Quality     22423335443533    
+ Target0 234 AAAGTATACAATAG 247  Score
+TRBC2*00 149 GaGgtGCacaGt-g 161  44
+
+>>> Read id: 4
+
+                                                      VP>                                          
+                                   FR3><CDR3          V><VP    <D D><J         CDR3><FR4           
+   Quality     66666666676677777777777777777777777777777766777777777773737777777777773777777677    
+   Target0   0 CCCAACCAGACCTCTCTGTACTTCTGTGCCAGCAGTTTATCGGGCATGAGCGGAGAGACCCAGTACTTCGGGCCAGGCAC 79   Score
+ TRBV27*00 246 cccaaccagacctctctgtacttctgtgccagcagtttatcg                                       287  210
+  TRBD2*00  22                                                 agcgg                            26   25
+TRBJ2-5*00  24                                                      agagacccagtacttcgggccaggcac 50   220
+
+                                                                                                  
+                           FR4><C                                                                 
+   Quality    77777777777777777776777777777377527777777777767777777567677777777677777777672677    
+   Target0 80 GCGGCTCCTGGTGCTCGAGGACCTGAAAAACGTGTTCCCACCCGAGGTCGCTGTGTTTGAGCCATCAGAAGCAGAGACTA 159  Score
+TRBJ2-5*00 51 gcggctcctggtgctcg                                                                67   220
+  TRBC2*00  0                  aggacctgaaaaacgtgttcccacccgaggtcgctgtgtttgagccatcagaagcagaga-tC 61   50
+
+                                                                                                 
+                                                                                                 
+ Quality     7777777 7777266777777774777677776 7777766776777677677777777777 77777  7777625566    
+ Target0 160 AACGAGA-TCGGAAGAGCACACGTCTGAACTCC-AGTCACAGTCAGGTATCTCGTATGCCGT-CTTCT--GCTTGAAAAA 234  Score
+TRBC2*00  62 TCcCaCaCCcAAaagGCcacac-t-GgTaTGccTGgCcacagGcTTCtaCcCcg-aCCAcgtGGAGctGAgctGgTGGGT 138  50
+
+                              
+                              
+ Quality     6524552222522    
+ Target0 235 AAAAAATACAGAA 247  Score
+TRBC2*00 139 GaaTGGGa-agGa 150  50
+
+Filtered: 5 / 5 = 100.0%
