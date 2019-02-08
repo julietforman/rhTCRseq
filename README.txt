@@ -123,7 +123,7 @@ Some of the V genes at the TRB locus to which Mixcr aligns reads and assigns clo
 ### FOR BULK RNA RUNS ONLY ###
 9: Mixcr UMI
 
-This step runs once for each locus for each fastq_basename via a call to the script count_umi.py. This step identifies the UMIs that go with each read in each clonotype. Then all clonotypes are sorted into groups with the same V and J gene assignment pair. Within each group with matching V and J gene pairs, clonotypes with overlapping UMIs are clustered together. Within each of these clusters, the majority clonotype with the most unique UMIs is identified, and the rest of the clonotypes in the cluster are collapsed into that majority clonotype, which in turn gains all of the reads and UMIs from the clonotypes that are subsumed. Then, UMIs within each clonotype are collapsed together if they are within one Hamming distance from each other, and UMIs that have only one read supporting them are deleted. Finally, clonotypes that have no remaining UMIs are deleted. This step generates several output files for each locus for each fastq_basename:
+This step runs once for each locus for each fastq_basename via a call to the script count_umi.py. This step identifies the UMIs that go with each read in each clonotype. Within each clonotype, any UMIs that have only one read supporting them are removed, and any clonotypes with no remaining UMIs are eliminated. Then all remaining clonotypes are sorted into groups with the same V and J gene assignment pair. Within each group with matching V and J gene pairs, clonotypes with at least 95% nucleotide sequence identity are clustered together. Within each of these clusters, the clonotypes are divided into groups that have the same length cdr3 amino acid sequence, and for each group, the majority clonotype with the most unique UMIs is identified and the rest of the clonotypes in the group are collapsed into that majority clonotype, which in turn gains all of the reads and UMIs from the clonotypes that are subsumed. Finally, clonotypes that are pseudogenes or ORFs or have only one read in support are deleted. This step generates several output files for each locus for each fastq_basename:
 	<ROOT_DIR>out/<RUN_NAME>/mixcr/<fastq_basename>_<locus>/collapse_stat.txt
 		This file records the total number of reads and UMIs across all clonotypes, and the number of clonotypes present before collapse.
 	<ROOT_DIR>out/<RUN_NAME>/mixcr/<fastq_basename>_<locus>/clone_stat.csv
@@ -175,7 +175,7 @@ This step examines clonotypes for each locus in each well. Within each well, it 
 
 Instructions for use:
 
-The required input for the rhTCRseq pipeline includes the sequencing reads in fastq.gz files separated by well, with four files per well. Each filename for each well should begin with the fastq_basename prefix for that well, and the four filenames should end in _L001_R1_001, _L001_R2_001, _L001_I1_001, and _L001_I2_001. Also required is the SampleSheet.csv file for the run.
+The required input for the rhTCRseq pipeline includes the sequencing reads in fastq.gz files separated by well, with four files per well. Each filename for each well should begin with the fastq_basename prefix for that well, and the four filenames should end in _L001_R1_001.fastq.gz, _L001_R2_001.fastq.gz, _L001_I1_001.fastq.gz, and _L001_I2_001.fastq.gz. Also required is the SampleSheet.csv file for the run.
 
 1: Install MiXCR-2.1.5, NCBI Blast, Java, and GNU Parallel versions specified above.
 
