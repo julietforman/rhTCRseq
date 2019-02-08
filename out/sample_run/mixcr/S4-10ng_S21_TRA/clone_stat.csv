@@ -1,2 +1,2 @@
 Fastq_basename,loci,Total reads,Total clones,Total UMIs,Reads/umi,UMIs/clone,% clones collapsed
-S4-10ng_S21,TRA,12691,2257,2735,4.64,1.21,24.31
+S4-10ng_S21,TRA,12682,2147,2800,4.53,1.30,28.00

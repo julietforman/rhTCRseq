@@ -5,25 +5,25 @@
 
 >> MAKE DIRECTORIES
 
-[Thu Nov 15 11:42:01 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fasta/
-[Thu Nov 15 11:42:01 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/blast/
-[Thu Nov 15 11:42:01 EST 2018] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/blast/S3-10ng_S20/
-[Thu Nov 15 11:42:01 EST 2018] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/blast/S3-10ng_S20/
+[Fri Feb 08 15:44:35 EST 2019] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/fasta/
+[Fri Feb 08 15:44:35 EST 2019] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/blast/
+[Fri Feb 08 15:44:35 EST 2019] $ mkdir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/blast/S3-10ng_S20/
+[Fri Feb 08 15:44:35 EST 2019] $ cd /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/blast/S3-10ng_S20/
 
 
 >> CONVERT FASTQ TO FASTA
 
-[Thu Nov 15 11:42:01 EST 2018] $ 
+[Fri Feb 08 15:44:35 EST 2019] $ 
 
-[Thu Nov 15 11:42:05 EST 2018] $ 
+[Fri Feb 08 15:44:38 EST 2019] $ 
 
 
 
 >> BLAST PRIMERS
 
-[Thu Nov 15 11:42:06 EST 2018] $ blastn -query /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fasta/S3-10ng_S20_L001_R1_001.fasta -query_loc 1-25 -strand plus -task blastn-short -db /Users/jforman/Documents/WuLab/TCR_protocol_files/blast_database/TRV_primer.fasta -out R1_vs_TRV.blast -outfmt "6 std qlen slen sstrand" -max_target_seqs 1
+[Fri Feb 08 15:44:38 EST 2019] $ blastn -query /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/fasta/S3-10ng_S20_L001_R1_001.fasta -query_loc 1-25 -strand plus -task blastn-short -db /Users/jforman/Documents/WuLab/TCR_protocol_files/blast_database/TRV_primer.fasta -out R1_vs_TRV.blast -outfmt "6 std qlen slen sstrand" -max_target_seqs 1
 
-[Thu Nov 15 11:42:18 EST 2018] $ blastn -query /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fasta/S3-10ng_S20_L001_R2_001.fasta -query_loc 1-35 -strand plus -task blastn-short -db /Users/jforman/Documents/WuLab/TCR_protocol_files/blast_database/TRC_primer.fasta -out R2_vs_TRC.blast -outfmt "6 std qlen slen sstrand" -max_target_seqs 1
+[Fri Feb 08 15:44:46 EST 2019] $ blastn -query /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/fasta/S3-10ng_S20_L001_R2_001.fasta -query_loc 1-35 -strand plus -task blastn-short -db /Users/jforman/Documents/WuLab/TCR_protocol_files/blast_database/TRC_primer.fasta -out R2_vs_TRC.blast -outfmt "6 std qlen slen sstrand" -max_target_seqs 1
 
 
 
@@ -33,5 +33,5 @@ usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ...
             [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
 usage: date [-jnRu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
             [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
-ELAPSED TIME: 00:00:24
+ELAPSED TIME: 00:00:17
 

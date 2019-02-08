@@ -1,3 +1,3 @@
-Total read count:12877
-Total number of UMIs across all clones:2740
+Total read count:14282
+Total number of UMIs across all clones:3005
 Total number of clones before collapse:3524

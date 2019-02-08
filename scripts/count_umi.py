@@ -191,7 +191,7 @@ def collapseClusters(cluster_list, clone_dict):
 
 
 def mergeClonotypes(majority_clone_id, clone_id_list, clone_dict):
-    new_dict = clone_dict[clone_id]
+    new_dict = clone_dict[majority_clone_id]
 
     new_clone_count = 0
     new_clone_fraction = 0

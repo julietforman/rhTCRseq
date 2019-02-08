@@ -3,12 +3,12 @@
 --------------------------------------------------
 
 
-[Thu Nov 15 11:43:23 EST 2018] read tcr blast results
-[Thu Nov 15 11:43:39 EST 2018] find reads with consistent trv and trc blast results
-[Thu Nov 15 11:43:39 EST 2018] print read - tcr blast results mapping
-[Thu Nov 15 11:43:39 EST 2018] print tcr read counts
+[Fri Feb 08 15:45:35 EST 2019] read tcr blast results
+[Fri Feb 08 15:45:47 EST 2019] find reads with consistent trv and trc blast results
+[Fri Feb 08 15:45:47 EST 2019] print read - tcr blast results mapping
+[Fri Feb 08 15:45:47 EST 2019] print tcr read counts
 
 
 --------------------------------------------------
-ELAPSED TIME: 00:00:16
+ELAPSED TIME: 00:00:12
 

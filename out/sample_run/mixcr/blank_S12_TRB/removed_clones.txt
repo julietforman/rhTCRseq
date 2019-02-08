@@ -1,3 +1,1 @@
 v_hit	j_hit	cdr3	reason removed
-TRBV29-1	TRBJ1-1	CSVVGSGTEAFF	no UMIs
-TRBV29-1	TRBJ1-1	CSVVGS_H*AFF	no UMIs

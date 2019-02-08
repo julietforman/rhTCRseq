@@ -4,8 +4,8 @@
 #SBATCH -t 15:00:00 # Runtime in minutes
 #SBATCH --mem=20000 #Memory per node in MB (see also --mem-per-cpu)
 #SBATCH -p medium
-#SBATCH -o /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/master/master.out
-#SBATCH -J master_sample_data
+#SBATCH -o /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/master/master.out
+#SBATCH -J master_sample_run
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=jforman@broadinstitute.org
 ### define parameters
@@ -18,18 +18,18 @@ echo
 echo start setup
 BLAST_DATABASE_DIR=/Users/jforman/Documents/WuLab/TCR_protocol_files/blast_database/
 MIXCR_JAR=/Users/jforman/bin/mixcr-2.1.5/mixcr.jar
-fastq_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/data/sample_data/
-mixcr_fastq_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/fastq/tcr/
-run_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/
+fastq_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/data/sample_run/
+mixcr_fastq_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/fastq/tcr/
+run_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/
 target_gene_exist=N
 umi_exist=Y
 sc_data=N
-run_info=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/run_info.csv
+run_info=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/run_info.csv
 >${run_dir}logs/master/master.out
 
 # sample arguments
-blast_fastq_list_path=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/results/fastq_basename4blast.list
-mixcr_fastq_list_path=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/results/fastq_basename4mixcr.list
+blast_fastq_list_path=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/results/fastq_basename4blast.list
+mixcr_fastq_list_path=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/results/fastq_basename4mixcr.list
 src_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/scripts/
 echo setup completed
 echo
@@ -38,22 +38,22 @@ echo
 echo start map
 python3 ${src_dir}analyze_tcr.py --info $run_info --step map
 sample_range=`python ${src_dir}get_parallel_range.py --fastq_list_path $blast_fastq_list_path`
-blast_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/blast/
+blast_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/blast/
 
 blast_log_file=${blast_log_dir}array_jobs.log
-blast_parse_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/blast_parse/
+blast_parse_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/blast_parse/
 
 blast_parse_log_file=${blast_parse_log_dir}array_jobs.log
-separate_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/separate/
+separate_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/separate/
 
 separate_log_file=${separate_log_dir}array_jobs.log
-mixcr_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/mixcr/
+mixcr_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/mixcr/
 
 mixcr_log_file=${mixcr_log_dir}array_jobs.log
-merge_TRBV_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/merge_TRBV/
+merge_TRBV_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/merge_TRBV/
 
 merge_TRBV_log_file=${mixcr_log_dir}array_jobs.log
-mixcr_umi_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data/logs/mixcr_umi/
+mixcr_umi_log_dir=/Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run/logs/mixcr_umi/
 
 mixcr_umi_log_file=${mixcr_umi_log_dir}array_jobs.log
 if [[ ! -e $blast_log_file ]]; then
@@ -138,7 +138,7 @@ echo
 fi
 if [[ $sc_data == "N" ]]; then
 echo start compare clonotype
-python3 ${src_dir}compare_clonotype.py --run_dir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_data --collapse_rules_path /Users/jforman/Documents/WuLab/TCR_protocol_files/scripts/collapse_rules.txt
+python3 ${src_dir}compare_clonotype.py --run_dir /Users/jforman/Documents/WuLab/TCR_protocol_files/out/sample_run --collapse_rules_path /Users/jforman/Documents/WuLab/TCR_protocol_files/scripts/collapse_rules.txt
 wait
 echo compare clonotype completed
 echo

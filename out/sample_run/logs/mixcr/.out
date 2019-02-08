@@ -1,11 +1,11 @@
-
-[PARSE BLAST RESULTS]
+skipping TRA
+ RESULTS]
 --------------------------------------------------
 
 
-[Thu Nov 15 11:53:27 EST 2018] read clones.txt file
-[Thu Nov 15 11:53:27 EST 2018] rename original clones file to clones_pre_combine_TRBV6_TRBV12.txt
-[Thu Nov 15 11:53:27 EST 2018] write clones.txt with indistinguishable V hits merged
+[Fri Feb 08 15:54:29 EST 2019] read clones.txt file
+[Fri Feb 08 15:54:29 EST 2019] rename original clones file to clones_pre_combine_TRBV6_TRBV12.txt
+[Fri Feb 08 15:54:29 EST 2019] write clones.txt with indistinguishable V hits merged
 
 --------------------------------------------------
 ELAPSED TIME: 00:00:00
