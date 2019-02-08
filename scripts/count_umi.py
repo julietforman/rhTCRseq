@@ -48,75 +48,75 @@ nested_dict = lambda: defaultdict(nested_dict)
 #                     str(hit["umi_count"]),
 #                     hit["clonotype"]]) + "\n")
 
-def remove_umis(umi_list):
-    umi_sorted = sorted(umi_list,key=umi_list.count,reverse=True)
-    used = set()
-    umi_unique = [x for x in umi_sorted if x not in used and (used.add(x) or True)]
+# def remove_umis(umi_list):
+#     umi_sorted = sorted(umi_list,key=umi_list.count,reverse=True)
+#     used = set()
+#     umi_unique = [x for x in umi_sorted if x not in used and (used.add(x) or True)]
     
-    umi_count = 0
-    umis_to_keep = list()
-    for umi in umi_unique:
-        if umi_list.count(umi) > 1:
-           umis_to_keep.append(umi)
-           umi_count += 1
+#     umi_count = 0
+#     umis_to_keep = list()
+#     for umi in umi_unique:
+#         if umi_list.count(umi) > 1:
+#            umis_to_keep.append(umi)
+#            umi_count += 1
     
-    umis_included = [x for x in umi_list if x in umis_to_keep]
-    return umi_count, umis_included
+#     umis_included = [x for x in umi_list if x in umis_to_keep]
+#     return umi_count, umis_included
 
-def count_umi(umi_list, sf):
-    max = 1
-    umi_sorted = sorted(umi_list,key=umi_list.count,reverse=True)
-    used = set()
-    umi_unique = [x for x in umi_sorted if x not in used and (used.add(x) or True)]
+# def count_umi(umi_list, sf):
+#     max = 1
+#     umi_sorted = sorted(umi_list,key=umi_list.count,reverse=True)
+#     used = set()
+#     umi_unique = [x for x in umi_sorted if x not in used and (used.add(x) or True)]
     
-    umi_count = 0
-    total_freq = 0
-    low_freq_umis = list()
-    high_freq_umis = list()
-    true_umi = list()
-    umi_read_counts = dict()
+#     umi_count = 0
+#     total_freq = 0
+#     low_freq_umis = list()
+#     high_freq_umis = list()
+#     true_umi = list()
+#     umi_read_counts = dict()
     
-    for umi in umi_unique:
-        freq = umi_list.count(umi) / float(len(umi_list))
-        total_freq += freq
-        umi_read_counts[umi] = umi_list.count(umi)
+#     for umi in umi_unique:
+#         freq = umi_list.count(umi) / float(len(umi_list))
+#         total_freq += freq
+#         umi_read_counts[umi] = umi_list.count(umi)
         
-        if (umi_count == 0 and total_freq > 0.10):
-            umi_count +=1
-            high_freq_umis.append(umi)
-            true_umi.append(umi)
-        else:
-            if (total_freq > 0.10):
-                low_freq_umis.append(umi)
-            else:
-                umi_count +=1
-                high_freq_umis.append(umi)
-                true_umi.append(umi)
+#         if (umi_count == 0 and total_freq > 0.10):
+#             umi_count +=1
+#             high_freq_umis.append(umi)
+#             true_umi.append(umi)
+#         else:
+#             if (total_freq > 0.10):
+#                 low_freq_umis.append(umi)
+#             else:
+#                 umi_count +=1
+#                 high_freq_umis.append(umi)
+#                 true_umi.append(umi)
         
-    for low_umi in low_freq_umis:
-        collaps = True
-        for high_umi in high_freq_umis:
-            collaps = True
-            n = 0
-            for c1, c2 in zip(low_umi, high_umi):
-                if c1 != c2:
-                    n += 1
-                    if n > max:
-                        collaps = False
-                        break
+#     for low_umi in low_freq_umis:
+#         collaps = True
+#         for high_umi in high_freq_umis:
+#             collaps = True
+#             n = 0
+#             for c1, c2 in zip(low_umi, high_umi):
+#                 if c1 != c2:
+#                     n += 1
+#                     if n > max:
+#                         collaps = False
+#                         break
 
-            if collaps == True:
-                break
+#             if collaps == True:
+#                 break
             
-        if collaps == False:
-            umi_count +=1
-            high_freq_umis.append(low_umi)
-            true_umi.append(low_umi)
-        else:
-            sf.write("Umi %s collapsed with %s\n"%(low_umi, high_umi))
-    umis_included = [x for x in umi_list if x in true_umi]
+#         if collaps == False:
+#             umi_count +=1
+#             high_freq_umis.append(low_umi)
+#             true_umi.append(low_umi)
+#         else:
+#             sf.write("Umi %s collapsed with %s\n"%(low_umi, high_umi))
+#     umis_included = [x for x in umi_list if x in true_umi]
         
-    return umi_count,umis_included
+#     return umi_count,umis_included
 
 def initClusterList(clonotype_list):
     '''input is list of dictionaries which each hold info about one clonotype. Output is a list of clusters. Each cluster
@@ -148,20 +148,28 @@ def mergeClusters(cluster_list, index_list):
         out_list.append((newClusterCloneIDs, newClusterUmiSet))
     return out_list
 
-def collapseClusters(cluster_list, clone_dict, majorityClonotype = None):
+def collapseClusters(cluster_list, clone_dict):
 
     for cluster in cluster_list:
         clone_id_list = cluster[0]
-        clone_umi_set = cluster[1]
+        # clone_umi_set = cluster[1]
         if len(clone_id_list) == 1: #if there is only one clone in the cluster, add it to output dict and continue
             continue
 
-        # if not given as input, find the clonotype with the most unique UMIs (ties broken arbitrarily)
-        if majorityClonotype == None:
+        cdr3_len_dict = {}
+
+        for clone_id in clone_id_list: # group each clone by the aa length of its cdr3
+            len_cdr3 = len(clone_dict[clone_id]["cdr3"])
+            if len_cdr3 not in cdr3_len_dict:
+                cdr3_len_dict[len_cdr3] = []
+            cdr3_len_dict[len_cdr3].append(clone_id)
+
+        for len_cdr3 in cdr3_len_dict: # collapse clones with same length cdr3
+            # find the clonotype with the most unique UMIs (ties broken arbitrarily)
             majorityClonotype = ""
             backup = ""
             high_umi_count = 0
-            for clone_id in clone_id_list:
+            for clone_id in cdr3_len_dict[len_cdr3]:
                 umi_count = clone_dict[clone_id]["umi_count"]
                 v_hit = clone_dict[clone_id]["v_hit"]
                 if v_hit in PSEUDOGENES_ORFS:
@@ -171,17 +179,18 @@ def collapseClusters(cluster_list, clone_dict, majorityClonotype = None):
                     high_umi_count = umi_count
                     majorityClonotype = clone_id
 
+
             if majorityClonotype == "":
                 majorityClonotype = backup
 
-        # merge all clonotypes in cluster to the majority clonotype and add merged clone to output dict
-        clone_dict = mergeClonotypes(majorityClonotype, clone_id_list, clone_dict)
+            # merge all clonotypes in cluster to the majority clonotype and add merged clone to output dict
+            clone_dict = mergeClonotypes(majorityClonotype, cdr3_len_dict[len_cdr3], clone_dict)
 
     return clone_dict
 
 
 
-def mergeClonotypes(clone_id, clone_id_list, clone_dict):
+def mergeClonotypes(majority_clone_id, clone_id_list, clone_dict):
     new_dict = clone_dict[clone_id]
 
     new_clone_count = 0
@@ -189,12 +198,12 @@ def mergeClonotypes(clone_id, clone_id_list, clone_dict):
     new_umis = []
     new_umi_count = 0
 
-    for clone in clone_id_list:
-        new_clone_count += clone_dict[clone]["clone_count"]
-        new_clone_fraction += clone_dict[clone]["clone_fraction"]
-        new_umis.extend(clone_dict[clone]["umis"])
-        if clone != clone_id:
-            del clone_dict[clone]
+    for clone_id in clone_id_list:
+        new_clone_count += clone_dict[clone_id]["clone_count"]
+        new_clone_fraction += clone_dict[clone_id]["clone_fraction"]
+        new_umis.extend(clone_dict[clone_id]["umis"])
+        if clone_id != majority_clone_id:
+            del clone_dict[clone_id]
 
     new_umi_count = len(set(new_umis))
 
@@ -203,7 +212,7 @@ def mergeClonotypes(clone_id, clone_id_list, clone_dict):
     new_dict["umis"] = new_umis
     new_dict["umi_count"] = new_umi_count
 
-    clone_dict[clone_id] = new_dict
+    clone_dict[majority_clone_id] = new_dict
 
     return clone_dict
 
@@ -246,46 +255,46 @@ def mergeUmiClusters(clusters, index_list):
     return outClusters
 
 
-def collapseUmiClusters(clusters, umi_list):
-    out_list = []
-    for cluster in clusters:
+# def collapseUmiClusters(clusters, umi_list):
+#     out_list = []
+#     for cluster in clusters:
 
-        #get umi with highest count, and total count of all umis in cluster
-        majorityUmi, totalCount = getMajorityUmi(cluster, umi_list)
+#         #get umi with highest count, and total count of all umis in cluster
+#         majorityUmi, totalCount = getMajorityUmi(cluster, umi_list)
 
-        #add majority umi to list once for each time a umi in the cluster appeared in the original umi list
-        for i in range(totalCount):
-            out_list.append(majorityUmi)
+#         #add majority umi to list once for each time a umi in the cluster appeared in the original umi list
+#         for i in range(totalCount):
+#             out_list.append(majorityUmi)
 
-    # filter out umis with only one read before returning
-    return filterUmis(out_list)
+#     # filter out umis with only one read before returning
+#     return filterUmis(out_list)
 
-def filterUmis(umi_list):
-    out_list = []
-    for umi in umi_list:
-        if umi_list.count(umi) > 1:
-            out_list.append(umi)
-    return out_list
+# def filterUmis(umi_list):
+#     out_list = []
+#     for umi in umi_list:
+#         if umi_list.count(umi) > 1:
+#             out_list.append(umi)
+#     return out_list
 
-def getMajorityUmi(cluster, umi_list):
-    majorityUmi = ""
-    highCount = 0
-    totalCount = 0
-    for umi in cluster:
-        count = umi_list.count(umi)
-        totalCount += count
-        if count > highCount:
-            majorityUmi = umi
-            highCount = count
+# def getMajorityUmi(cluster, umi_list):
+#     majorityUmi = ""
+#     highCount = 0
+#     totalCount = 0
+#     for umi in cluster:
+#         count = umi_list.count(umi)
+#         totalCount += count
+#         if count > highCount:
+#             majorityUmi = umi
+#             highCount = count
 
-    return majorityUmi, totalCount
+#     return majorityUmi, totalCount
 
-def getCloneList(cloneList):
-    out_clone_list = []
-    for clonotype in cloneList:
-        clone_id = clonotype["clone_id"]
-        out_clone_list.append(clone_id)
-    return out_clone_list
+# def getCloneList(cloneList):
+#     out_clone_list = []
+#     for clonotype in cloneList:
+#         clone_id = clonotype["clone_id"]
+#         out_clone_list.append(clone_id)
+#     return out_clone_list
 
 
 def main():
@@ -317,9 +326,15 @@ def main():
                         default=None,
                         type=str,
                         help="array task id")
+    parser.add_argument("--collapse_identity",
+                        dest="collapse_identity",
+                        default=0.95,
+                        type=float,
+                        help="CDR3 nuc identity threshold for collaple of clones")
 
     args = parser.parse_args()
     
+    collapse_identity = args.collapse_identity
     run_dir = args.run_dir
     fastq_basename = args.fastq_basename
     loci = args.loci
@@ -349,10 +364,10 @@ def main():
         os.makedirs(os.path.join(run_dir, "mixcr", fastq_basename + "_" + loci), exist_ok=True)
         stat_file1 = os.path.join(run_dir, "mixcr", fastq_basename + "_" + loci, "collapse_stat.txt")
         stat_file2 = os.path.join(run_dir, "mixcr", fastq_basename + "_" + loci, "clone_stat.csv")
-        same_vj_hits = defaultdict(list)
+        # same_vj_hits = defaultdict(list)
         clone_dict = defaultdict(list)
         read_counts = 0
-        total_umis = 0
+        # total_umis = 0
         sf1 = open(stat_file1, "w")
         sf2 = open(stat_file2, "w")
         sf2.write("Fastq_basename,loci,Total reads,Total clones,Total UMIs,Reads/umi,UMIs/clone,% clones collapsed\n")
@@ -395,17 +410,17 @@ def main():
                     umis = umi_all.tolist()
 
                 
-                total_umis += umi_count
+                # total_umis += umi_count
                 
                 
-                same_vj_hits[vj_hit].append({"clone_count": clone_count,
-                                "clone_fraction": clone_fraction,
-                                "clone_sequence": clone_sequence,
-                                "v_hit": v_hit, "j_hit": j_hit, "c_hit": c_hit,
-                                "cdr3": cdr3,
-                                "umi_count": umi_count,
-                                "clonotype": "\"" + v_hit + "," + j_hit + "," + cdr3 + "\"",
-                                "umis": umis, "clone_id": clone_id})
+                # same_vj_hits[vj_hit].append({"clone_count": clone_count,
+                #                 "clone_fraction": clone_fraction,
+                #                 "clone_sequence": clone_sequence,
+                #                 "v_hit": v_hit, "j_hit": j_hit, "c_hit": c_hit,
+                #                 "cdr3": cdr3,
+                #                 "umi_count": umi_count,
+                #                 "clonotype": "\"" + v_hit + "," + j_hit + "," + cdr3 + "\"",
+                #                 "umis": umis, "clone_id": clone_id})
 
                 clone_dict[clone_id] = {"clone_count": clone_count,
                                 "clone_fraction": clone_fraction,
@@ -423,6 +438,33 @@ def main():
         if clones != 0:
             # sf1.write("\nClones collapsed based on CDR3 amino acids sequence:\n\n")
 
+            #remove umis with only one read
+            remove_clone_list = []
+            for clone_id in clone_dict:
+                umi_list = clone_dict[clone_id]["umis"]
+                remove_umi_list = []
+                for umi in umi_list:
+                    if umi_list.count(umi) == 1:
+                        remove_umi_list.append(umi)
+                for umi in remove_umi_list:
+                    umi_list.remove(umi)
+                if len(umi_list) == 0:
+                    remove_clone_list.append(clone_id)
+                clone_dict[clone_id]["umis"] = umi_list
+                clone_dict[clone_id]["umi_count"] = len(set(umi_list))
+            for clone_id in remove_clone_list:
+                del clone_dict[clone_id]
+
+
+            same_vj_hits = defaultdict(list)
+            for clone_id in clone_dict:
+                v_hit = clone_dict[clone_id]["v_hit"]
+                j_hit = clone_dict[clone_id]["j_hit"]
+                vj_hit = "%s_%s"%(v_hit,j_hit)
+
+                same_vj_hits[vj_hit].append(clone_dict[clone_id])
+
+
             #for clonotypes with same V and J: cluster clonotypes with shared UMIs
             for vj_combo in same_vj_hits:
                 if len(same_vj_hits[vj_combo]) == 1: #continue if only one clonotype has this vj_combo
@@ -433,12 +475,26 @@ def main():
                 for clonotype in same_vj_hits[vj_combo]:
                     cluster_index_list_to_merge = [] # list to store indices of clusters to be merged
                     clone_id = clonotype["clone_id"]
-                    umi_set = set(clonotype["umis"])
+                    # umi_set = set(clonotype["umis"])
+                    clone_sequence_1 = clonotype["clone_sequence"]
 
                     for i in range(len(cluster_list)):
-                        cluster_umi_set = cluster_list[i][1]
-                        if not umi_set.isdisjoint(cluster_umi_set):
-                            cluster_index_list_to_merge.append(i)
+                        # cluster_umi_set = cluster_list[i][1]
+                        # if not umi_set.isdisjoint(cluster_umi_set):
+                        #     cluster_index_list_to_merge.append(i)
+                        clone_list = cluster_list[i][0]
+                        for clone in clone_list:
+                            clone_sequence_2 = clone_dict[clone]["clone_sequence"]
+                            alignment_score = pairwise2.align.globalxx(clone_sequence_1, clone_sequence_2, score_only = True)
+                            
+                            if len(clone_sequence_1) >= len(clone_sequence_2):
+                                identity = (alignment_score/len(clone_sequence_1))
+                            else:
+                                identity = (alignment_score/len(clone_sequence_2))
+
+                            if identity >= collapse_identity:
+                                cluster_index_list_to_merge.append(i)
+                                break
 
                     cluster_list = mergeClusters(cluster_list, cluster_index_list_to_merge)
 
@@ -446,27 +502,27 @@ def main():
             
 
             # for each clonotype, collapse umis within one hamming distance, remove umis with only one read
-            for clone_id in clone_dict:
+            # for clone_id in clone_dict:
 
-                umi_list = clone_dict[clone_id]["umis"]
-                umi_set = set(umi_list)
-                clusters = [[umi] for umi in set(umi_list)]
+            #     umi_list = clone_dict[clone_id]["umis"]
+            #     umi_set = set(umi_list)
+            #     clusters = [[umi] for umi in set(umi_list)]
 
-                for umi1 in umi_set:
-                    cluster_index_list_to_merge = [] # list of indices of umi clusters to merge
-                    for i in range(len(clusters)):
-                        cluster = clusters[i]
-                        for umi2 in cluster:
-                            dist = getHammingDist(umi1, umi2)
-                            if dist <= 1:
-                                cluster_index_list_to_merge.append(i)
-                                continue
-                    clusters = mergeUmiClusters(clusters, cluster_index_list_to_merge)
+            #     for umi1 in umi_set:
+            #         cluster_index_list_to_merge = [] # list of indices of umi clusters to merge
+            #         for i in range(len(clusters)):
+            #             cluster = clusters[i]
+            #             for umi2 in cluster:
+            #                 dist = getHammingDist(umi1, umi2)
+            #                 if dist <= 1:
+            #                     cluster_index_list_to_merge.append(i)
+            #                     continue
+            #         clusters = mergeUmiClusters(clusters, cluster_index_list_to_merge)
 
-                umi_list = collapseUmiClusters(clusters, umi_list)
+            #     umi_list = collapseUmiClusters(clusters, umi_list)
 
-                clone_dict[clone_id]["umis"] = umi_list
-                clone_dict[clone_id]["umi_count"] = len(set(umi_list))
+            #     clone_dict[clone_id]["umis"] = umi_list
+            #     clone_dict[clone_id]["umi_count"] = len(set(umi_list))
 
             # remove clones with no umis after filtering, remove clones from pseudogenes or ORFs
             remove_clone_list = []
@@ -479,9 +535,9 @@ def main():
                 cdr3 = clone_dict[clone_id]["cdr3"]
                 umi_list = clone_dict[clone_id]["umis"]
 
-                #if no umis or if V hit is pseudogene/orf, put clone in remove list
-                if umi_list == []: #if no umis left for this clone after filtering
-                    removedClonesFile.write(v_hit + "\t" + j_hit + "\t" + cdr3 + "\tno UMIs\n")
+                #if only one read or if V hit is pseudogene/orf, put clone in remove list
+                if len(umi_list) == 1: #if only one left for this clone after filtering (note: each umi in umi_list represents one read)
+                    removedClonesFile.write(v_hit + "\t" + j_hit + "\t" + cdr3 + "\tonly 1 read\n")
                     remove_clone_list.append(clone_id)
                 elif v_hit in PSEUDOGENES_ORFS:
                     removedClonesFile.write(v_hit + "\t" + j_hit + "\t" + cdr3 + "\tpseudogene/ORF\n")
