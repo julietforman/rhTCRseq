@@ -24,7 +24,7 @@ import matplotlib
 matplotlib.use('agg') #added
 import matplotlib.pyplot as plt
 
-PSEUDOGENES_ORFS = ["TRBV3-2", "TRBV5-7", "TRBV6-7", "TRBV7-1", "TRBV7-5", "TRBV12-1", "TRBV12-2"]
+# PSEUDOGENES_ORFS = ["TRBV3-2", "TRBV5-7", "TRBV6-7", "TRBV7-1", "TRBV7-5", "TRBV12-1", "TRBV12-2"]
 
 nested_dict = lambda: defaultdict(nested_dict)
 
@@ -138,6 +138,22 @@ def getLenDict(collapse_rules_path):
             out_dict[v_hit] = pos
 
     return out_dict
+
+def getPseudogenesORFs():
+
+    collapse_rules_path = "/cga/wu/juliet/scripts/collapse_rules.txt"
+    collapse_rules_file = open(collapse_rules_path, 'r')
+    out_list = []
+    for line in collapse_rules_file:
+        fields = line.rstrip().split("\t")
+        pos = fields[1]
+        for v_hit in fields[2:]:
+            if "DV" in v_hit:
+                parts = v_hit.split("/")
+                v_hit = parts[0] + parts[1]
+            out_list.append(v_hit)
+
+    return out_list
    
 
 def compareClonotype(clone_dir, group, fastq_basenames, loci, collapse_rules_path):
@@ -202,6 +218,8 @@ def compareClonotype(clone_dir, group, fastq_basenames, loci, collapse_rules_pat
 
     len_dict = getLenDict(collapse_rules_path) #get lengths of different v regions
 
+    functional_gene_list = getPseudogenesORFs()
+
     # identify majority clonotype(s) by umi count
     
 
@@ -216,7 +234,8 @@ def compareClonotype(clone_dir, group, fastq_basenames, loci, collapse_rules_pat
             clonotype = clone["clonotype"]
             umi_count = clonotype_umi_counts[clonotype]
             v_hit = clone["v_hit"]
-            if v_hit in PSEUDOGENES_ORFS:
+            # if v_hit in PSEUDOGENES_ORFS:
+            if v_hit not in functional_gene_list
                 print("found pseudogene/orf: ", v_hit)
                 backup = clonotype
                 continue

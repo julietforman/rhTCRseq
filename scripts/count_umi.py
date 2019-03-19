@@ -22,7 +22,9 @@ from collections import defaultdict
 from Bio import pairwise2
 from Bio.pairwise2 import format_alignment
 
-PSEUDOGENES_ORFS = ["TRBV3-2", "TRBV5-7", "TRBV6-7", "TRBV7-1", "TRBV7-5", "TRBV12-1", "TRBV12-2"]
+# PSEUDOGENES_ORFS = ["TRBV3-2", "TRBV5-7", "TRBV6-7", "TRBV7-1", "TRBV7-5", "TRBV12-1", "TRBV12-2"]
+
+functional_gene_list = getPseudogenesORFs(collapse_rules_path)
 
 nested_dict = lambda: defaultdict(nested_dict)
 
@@ -148,7 +150,7 @@ def mergeClusters(cluster_list, index_list):
         out_list.append((newClusterCloneIDs, newClusterUmiSet))
     return out_list
 
-def collapseClusters(cluster_list, clone_dict):
+def collapseClusters(cluster_list, clone_dict, functional_gene_list):
 
     for cluster in cluster_list:
         clone_id_list = cluster[0]
@@ -172,7 +174,8 @@ def collapseClusters(cluster_list, clone_dict):
             for clone_id in cdr3_len_dict[len_cdr3]:
                 umi_count = clone_dict[clone_id]["umi_count"]
                 v_hit = clone_dict[clone_id]["v_hit"]
-                if v_hit in PSEUDOGENES_ORFS:
+                # if v_hit in PSEUDOGENES_ORFS:
+                if v_hit not in functional_gene_list:
                     backup = clone_id
                     continue
                 if umi_count > high_umi_count:
@@ -231,6 +234,24 @@ def mergeClonotypes(majority_clone_id, clone_id_list, clone_dict):
 #             out_dict[v_hit] = pos
 
 #     return out_dict
+
+
+def getPseudogenesORFs(collapse_rules_path):
+
+    # collapse_rules_path = "/cga/wu/juliet/scripts/collapse_rules.txt"
+    collapse_rules_file = open(collapse_rules_path, 'r')
+    out_list = []
+    for line in collapse_rules_file:
+        fields = line.rstrip().split("\t")
+        pos = fields[1]
+        for v_hit in fields[2:]:
+            if "DV" in v_hit:
+                parts = v_hit.split("/")
+                v_hit = parts[0] + parts[1]
+            out_list.append(v_hit)
+
+    return out_list
+
 
 def getHammingDist(umi1, umi2):
     if umi1 == umi2:
@@ -331,6 +352,11 @@ def main():
                         default=0.95,
                         type=float,
                         help="CDR3 nuc identity threshold for collaple of clones")
+    parser.add_argument("--collapse_rules_path",
+                        dest="collapse_rules_path",
+                        default=None,
+                        type=str,
+                        help="path to collapse rules file")
 
     args = parser.parse_args()
     
@@ -340,6 +366,9 @@ def main():
     loci = args.loci
     log_path = args.log_path
     sge_task_id = args.sge_task_id
+    collapse_rules_path = args.collapse_rules_path
+
+    functional_gene_list = getPseudogenesORFs(collapse_rules_path)
 
 
     # start data processing
@@ -498,7 +527,7 @@ def main():
 
                     cluster_list = mergeClusters(cluster_list, cluster_index_list_to_merge)
 
-                clone_dict = collapseClusters(cluster_list, clone_dict)
+                clone_dict = collapseClusters(cluster_list, clone_dict, functional_gene_list)
             
 
             # for each clonotype, collapse umis within one hamming distance, remove umis with only one read
