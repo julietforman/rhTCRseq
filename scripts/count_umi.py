@@ -568,7 +568,8 @@ def main():
                 if len(umi_list) == 1: #if only one left for this clone after filtering (note: each umi in umi_list represents one read)
                     removedClonesFile.write(v_hit + "\t" + j_hit + "\t" + cdr3 + "\tonly 1 read\n")
                     remove_clone_list.append(clone_id)
-                elif v_hit in PSEUDOGENES_ORFS:
+                # elif v_hit in PSEUDOGENES_ORFS:
+                elif v_hit not in functional_gene_list:
                     removedClonesFile.write(v_hit + "\t" + j_hit + "\t" + cdr3 + "\tpseudogene/ORF\n")
                     remove_clone_list.append(clone_id)
 
