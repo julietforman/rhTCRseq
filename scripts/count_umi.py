@@ -24,7 +24,7 @@ from Bio.pairwise2 import format_alignment
 
 # PSEUDOGENES_ORFS = ["TRBV3-2", "TRBV5-7", "TRBV6-7", "TRBV7-1", "TRBV7-5", "TRBV12-1", "TRBV12-2"]
 
-functional_gene_list = getPseudogenesORFs(collapse_rules_path)
+# functional_gene_list = getPseudogenesORFs(collapse_rules_path)
 
 nested_dict = lambda: defaultdict(nested_dict)
 
